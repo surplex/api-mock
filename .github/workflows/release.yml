@@ -1,0 +1,16 @@
+name: Release api mock
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create a new tag
+      uses: mosfetlang/dev-tagger-action@v1
+      with:
+        tag-prefix: v
+    - name: Release api mock
+      uses: softprops/action-gh-release@v0.1.5
