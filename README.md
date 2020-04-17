@@ -1,5 +1,4 @@
 # <a id="title" href="#">Surplex API Mock</a>
----  
 
 A software to mock third-party responses (Mostly used for automated testing). To use the mock, send a request to the mock with sample data and get returned when you 
 request an external service, when you configured your settings appropriately.
@@ -7,7 +6,6 @@ request an external service, when you configured your settings appropriately.
 &nbsp;
 &nbsp;
 ## <a id="index" href="#index">Index</a>
----  
 
 * **[Surplex API Mock](#title)**
 * **[Index](#index)**
@@ -20,8 +18,7 @@ request an external service, when you configured your settings appropriately.
 
 &nbsp;
 &nbsp;
-## <a id="voraussetzungen" href="#voraussetzungen">Requirements</a>
----  
+## <a id="requirements" href="#requirements">Requirements</a>
 
 ### Software
 * Docker
@@ -35,7 +32,6 @@ Docker assigns automatically an open port. To see the assigned port use `$ docke
 &nbsp;
 &nbsp;
 ## <a id="tutorial" href="#tutorial">Tutorial</a>
----  
 
 ### Create a mock / Save a response
 
@@ -48,7 +44,7 @@ Docker assigns automatically an open port. To see the assigned port use `$ docke
         "request_key": "key_to_save_request"
     }
 
-```$ curl -X POST -d "data: {[data]}, headers: [headers], status_code: [status_code]}" [url]?session_id=[session_id]```
+`$ curl -X POST -d "data: {[data]}, headers: [headers], status_code: [status_code]}" [url]?session_id=[session_id]`
 * **url:** *URL to API Mock*
 * **session_id:** *Identification for the Mock Collection. If no session_id is specified as specified below then a session_id will be generated and returned.* | *optional*
 * **status_code:** *Status-Code of the Response. See [RFC7231](https://tools.ietf.org/html/rfc7231#section-6.1)*
@@ -70,7 +66,7 @@ mock responses for the given session.
 
     GET [url]?session_id=[session_id]
 
-```$ curl [url]?session_id=[session_id]```
+`$ curl [url]?session_id=[session_id]`
 * **url:** *URL to API Mock*
 * **session_id:** *Identification for the Mock Collection* | **required**
 
@@ -85,7 +81,7 @@ mock responses for the given session.
 Every request that does not match any of the patterns mentioned here will return the next
 mock response.
 
-```$ curl -X [method] -d [data] [url]```
+`$ curl -X [method] -d [data] [url]`
 * **url:** *URL to API Mock *plus* whatever you want, but it must not match any of the patterns above*
 * **method:** *Request method* | *optional*
 * **data:** *Request data* | *optional*
@@ -102,7 +98,7 @@ mock response.
 
 ### Retrieve stored client request
 
-If you specify a ```request_key``` for a mock response, the request triggering this
+If you specify a `request_key` for a mock response, the request triggering this
 response is stored and can be retrieved via this endpoint for additional checks. If
 the same request_key is used multiple times, the endpoint will return the requests
 in chronological order until all requests have been retrieved (then you get a 404).
@@ -136,7 +132,6 @@ of your tests to clean up.
 &nbsp;
 &nbsp;
 ## <a id="setup" href="#setup">Setup</a>
----  
 
 ### Available make commands:
 * dev  *Starts the necessary containers and uses a volume on the working directory.*
@@ -148,11 +143,11 @@ of your tests to clean up.
 * clean  *Cleans the desk*
 &nbsp;
 ### For local environment (with make):
-* **Run tests** ```$ make test```
+* **Run tests**  `$ make test`
 &nbsp;
-* **Start api-mock** ```$ make dev|prod|test```
+* **Start api-mock**  `$ make dev|prod|test`
 &nbsp;
-* **Stop api-mock** ```$ make clean```
+* **Stop api-mock**  `$ make clean`
 ## <a id="reserved_urls" href="#reserved_urls">Reserved urls / Default responses</a>
 ---  
 We have introduced reserved urls or default responses to send an already existing response for a certain URL without registering the response before.
@@ -172,15 +167,13 @@ Yii::createObject(Srplx\Mock\Service\ReservedUrlService::class)->addUrl(
 ```
 
 ## <a id="commands" href="#commands">Commands</a>
----  
 
-* **Build containers** ```$ docker-compose -f docker-compose.yml -f docker-compose.[dev|prod|test].yml build```
-* **Stop containers** ```$ docker-compose down```
-* **List all containers** ```$ docker ps ``` or ```$ docker-compose ps ```
+* **Build containers**  `$ docker-compose -f docker-compose.yml -f docker-compose.[dev|prod|test].yml build`
+* **Stop containers**  `$ docker-compose down`
+* **List all containers**  `$ docker ps` or `$ docker-compose ps `
 &nbsp;
 &nbsp;
 ## <a id="tests" href="#tests">Tests</a>
----  
 
 Following tests are available:
 * **API Test** ```$ ./bin/codecept run api```
