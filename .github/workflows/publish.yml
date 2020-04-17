@@ -8,9 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build and publish image
-      uses: zenato/docker-action@v1.0.0
+      uses: docker/build-push-action@v1
       with:
-        username: surplex
+        username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: surplex/api-mock
+        repository: surplex/api-mock/api-mock
+        tag_with_ref: true
