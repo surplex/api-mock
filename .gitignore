@@ -1,0 +1,47 @@
+# project files
+.idea
+.vscode
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# ignore sub directory for dev installed apps and extensions
+/apps
+/extensions
+
+#ignore bin stuff
+bin/*
+!bin/console*
+
+#var folder
+var/*
+
+#codeception testing
+c3.php
+tests/_output/*
+tests/_support/_generated/*
+
+#params
+config/cp_*
+config/params*.php
+!config/params_console.dist.php
+!config/params.dist.php
+
+# Sqlite3 Database
+db/*
+!db/.gitkeep

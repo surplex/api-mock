@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    expose:
+      - 80
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile

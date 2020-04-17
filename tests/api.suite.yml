@@ -1,0 +1,17 @@
+actor: ApiTester
+coverage:
+    remote: false
+modules:
+    enabled:
+        - Asserts
+        - \Helper\Api
+        - PhpBrowser:
+              url: http://web:80
+              curl:
+                  CURLOPT_TIMEOUT: 60
+        - REST:
+              url: http://web:80
+              depends: PhpBrowser
+              part: Json
+    config:
+        - Yii2

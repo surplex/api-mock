@@ -1,0 +1,93 @@
+{
+  "name": "surplex/api-mock",
+  "description": "A mock for automated testing. To use the mock, send a request to the mock with sample data and get returned when you \nrequest an external service, when you configured your settings appropriately.",
+  "type": "project",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Surplex GmbH - Team Unity"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-zip": "*",
+    "ext-memcached": "*",
+    "ext-soap": "*",
+    "yiisoft/yii2": "~2.0.16",
+    "ext-dom": "*",
+    "ext-simplexml": "*",
+    "samdark/yii2-psr-log-target": "^1.1",
+    "monolog/monolog": "^2.0"
+  },
+  "provide": {
+    "bower-asset/jquery": "*",
+    "bower-asset/jquery.inputmask": "*",
+    "bower-asset/punycode": "*",
+    "bower-asset/yii2-pjax": "*",
+    "bower-asset/bootstrap": "*",
+    "bower-asset/inputmask": "*"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.4",
+    "codeception/c3": "2.*"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Srplx\\Tests\\": "tests/",
+      "SrplxBoiler\\Common\\": "src/Common",
+      "Srplx\\Mock\\": "src/Mock"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "SrplxBoiler\\Common\\Component\\Composer\\ParametersComposer::action",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "SrplxBoiler\\Common\\Component\\Composer\\ParametersComposer::action",
+      "composer dump-autoload"
+    ]
+  },
+  "extra": {
+    "enable-patching": true,
+    "patches-file": "composer.patches.json",
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "var/cache": "0777",
+          "var/logs": "0777",
+          "bin/console": "0755"
+        }
+      ]
+    },
+    "SrplxBoiler\\Common\\Component\\Composer\\ParametersComposer": {
+      "parameters": [
+        {
+          "dist-path": "config",
+          "target-path": "config",
+          "dist-file": "params.dist.php",
+          "target-file": "params.php"
+        },
+        {
+          "dist-path": "config",
+          "target-path": "config",
+          "dist-file": "params_console.dist.php",
+          "target-file": "params_console.php"
+        }
+      ]
+    }
+  }
+}
