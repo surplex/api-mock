@@ -1,0 +1,16 @@
+name: Publish docker image
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and publish image
+      uses: zenato/docker-action@v1.0.0
+      with:
+        username: surplex
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: surplex/api-mock
