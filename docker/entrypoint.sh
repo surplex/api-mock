@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Installing composer dependencies"
+composer install
+
 echo "Creating database file.."
 sqlite3 /usr/src/app/db/mock.db "SELECT 1;"
 chown -R www-data:www-data /usr/src/app/db
