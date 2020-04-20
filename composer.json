@@ -46,7 +46,8 @@
     "psr-4": {
       "Srplx\\Tests\\": "tests/",
       "SrplxBoiler\\Common\\": "src/Common",
-      "Srplx\\Mock\\": "src/Mock"
+      "Srplx\\Mock\\": "src/Mock",
+      "Srplx\\": "src/"
     }
   },
   "scripts": {
