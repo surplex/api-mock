@@ -178,3 +178,9 @@ Yii::createObject(Srplx\Mock\Service\ReservedUrlService::class)->addUrl(
 Following tests are available:
 * **API Test** ```$ ./bin/codecept run api```
 * **Unit Test** ```$ ./bin/codecept run unit```
+
+## <a id="badges" href="#badges">Badges</a>
+[![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
+![Release api mock](https://github.com/surplex/api-mock/workflows/Release%20api%20mock/badge.svg)
+![Publish docker image](https://github.com/surplex/api-mock/workflows/Publish%20docker%20image/badge.svg)
+![Validate master](https://github.com/surplex/api-mock/workflows/Validate%20master/badge.svg)
