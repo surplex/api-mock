@@ -184,3 +184,4 @@ Following tests are available:
 ![Release api mock](https://github.com/surplex/api-mock/workflows/Release%20api%20mock/badge.svg)
 ![Publish docker image](https://github.com/surplex/api-mock/workflows/Publish%20docker%20image/badge.svg)
 ![Validate master](https://github.com/surplex/api-mock/workflows/Validate%20master/badge.svg)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3928/badge)](https://bestpractices.coreinfrastructure.org/projects/3928)
