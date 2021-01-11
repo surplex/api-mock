@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-EXPOSE 9000
-
 echo "Installing composer dependencies"
 composer install
 

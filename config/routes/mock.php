@@ -7,7 +7,7 @@
 return [
     [
         'pattern'   => '',
-        'route'     => 'api-mock/mock/mock/create',
+        'route'     => 'mock/mock/create',
         'verb'      => 'POST',
     ],
     [
