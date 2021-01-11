@@ -64,7 +64,7 @@ Docker assigns automatically an open port. To see the assigned port use `$ docke
 A GET request to the root URL of the API mock will return the count of unsent
 mock responses for the given session.
 
-    GET [url]?session_id=[session_id]
+    GET [url]/api-mock/?session_id=[session_id]
 
 `$ curl [url]?session_id=[session_id]`
 * **url:** *URL to API Mock*
@@ -103,7 +103,7 @@ response is stored and can be retrieved via this endpoint for additional checks.
 the same request_key is used multiple times, the endpoint will return the requests
 in chronological order until all requests have been retrieved (then you get a 404).
 
-    GET /client-request?session_id=[session_id]&request_key=[request_key]
+    GET /api-mock/client-request?session_id=[session_id]&request_key=[request_key]
     
 #### Response
 
@@ -123,7 +123,7 @@ Calling this endpoint will remove all unsent mock responses and all
 stored client requests, that were not retrieved, yet. Use this at the end
 of your tests to clean up.
 
-    POST /clear-session?session_id=[session_id]
+    POST /api-mock/clear-session?session_id=[session_id]
 
 #### Response
 
