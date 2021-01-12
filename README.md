@@ -35,7 +35,7 @@ Docker assigns automatically an open port. To see the assigned port use `$ docke
 
 ### Create a mock / Save a response
 
-    POST [url]?session_id=[session_id]
+    POST [url]/api-mock/create?session_id=[session_id]
     {
         "status_code": 200,
         "headers": { ... },
@@ -64,7 +64,7 @@ Docker assigns automatically an open port. To see the assigned port use `$ docke
 A GET request to the root URL of the API mock will return the count of unsent
 mock responses for the given session.
 
-    GET [url]/api-mock/?session_id=[session_id]
+    GET [url]/api-mock/count?session_id=[session_id]
 
 `$ curl [url]?session_id=[session_id]`
 * **url:** *URL to API Mock*
