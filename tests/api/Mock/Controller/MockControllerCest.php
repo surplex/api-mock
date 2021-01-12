@@ -17,7 +17,7 @@ class MockControllerCest
      */
     public function tryToSaveResponse(\ApiTester $I)
     {
-        $I->sendPOST('/', [
+        $I->sendPOST('/api-mock/create', [
             'data' => [
                 'test' => 'api'
             ],
@@ -68,7 +68,7 @@ class MockControllerCest
      */
     public function tryToStoreClientRequest(\ApiTester $I)
     {
-        $I->sendPOST('/', [
+        $I->sendPOST('/api-mock/create', [
             'session_id'  => 'apitest',
             'status_code' => HttpCode::OK,
             'headers'     => ['Content-Type' => 'application/json'],
