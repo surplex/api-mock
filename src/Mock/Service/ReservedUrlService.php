@@ -15,27 +15,10 @@ class ReservedUrlService
     /**
      * @param Request $request
      *
-     * @return bool
-     * @throws \yii\base\InvalidConfigException
-     */
-    public function isReservedRequest(Request $request): bool
-    {
-        /** @var ReservedUrl $reservedUrl */
-        foreach (static::$_reservedResponses as $reservedUrl) {
-            if ($reservedUrl->is($request->getUrl())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * @param Request $request
-     *
      * @return ReservedUrl|null
      * @throws \yii\base\InvalidConfigException
      */
-    public function getReservedRequest(Request $request)
+    public function getReservedRequest(Request $request): ?ReservedUrl
     {
         /** @var ReservedUrl $reservedUrl */
         foreach (static::$_reservedResponses as $reservedUrl) {
@@ -73,9 +56,10 @@ class ReservedUrlService
      */
     public function handle(Request $request, Response $response)
     {
-        if (!$this->isReservedRequest($request)) {
+        $reservedUrl = !$this->getReservedRequest($request);
+        if (is_null($reservedUrl)) {
             throw new InvalidCallException('Url is not reserved');
         }
-        call_user_func($this->getReservedRequest($request)->getCallback(), $request, $response);
+        call_user_func($reservedUrl->getCallback(), $request, $response);
     }
 }
