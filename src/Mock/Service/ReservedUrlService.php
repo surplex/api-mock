@@ -40,15 +40,6 @@ class ReservedUrlService
     }
 
     /**
-     * Returns an array with all reserved responses
-     * @return array
-     */
-    public function getUrls(): array
-    {
-        return static::$_reservedResponses;
-    }
-
-    /**
      * @param Request $request
      * @param Response $response
      *
@@ -56,7 +47,7 @@ class ReservedUrlService
      */
     public function handle(Request $request, Response $response)
     {
-        $reservedUrl = !$this->getReservedRequest($request);
+        $reservedUrl = $this->getReservedRequest($request);
         if (is_null($reservedUrl)) {
             throw new InvalidCallException('Url is not reserved');
         }
