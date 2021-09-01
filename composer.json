@@ -36,7 +36,7 @@
     "bower-asset/inputmask": "*"
   },
   "require-dev": {
-    "codeception/codeception": "^2.4",
+    "codeception/codeception": "^3.1",
     "codeception/c3": "2.*"
   },
   "config": {
