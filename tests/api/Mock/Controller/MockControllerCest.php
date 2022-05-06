@@ -37,7 +37,7 @@ class MockControllerCest
     public function tryToReceiveCountOfNotReceivedMocksAndShouldSeeOne(\ApiTester $I)
     {
         $I->sendGET('/api-mock/count?session_id=apitest');
-        $I->see(1);
+        $I->see("1");
     }
 
     /**
@@ -57,7 +57,7 @@ class MockControllerCest
     public function tryToReceiveCountOfNotReceivedMocksAndShouldSeeZero(\ApiTester $I)
     {
         $I->sendGET('/api-mock/count?session_id=apitest');
-        $I->see(0);
+        $I->see("0");
     }
 
     /**

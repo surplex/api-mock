@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:8.0-fpm
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
@@ -26,8 +26,8 @@ libzip-dev && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
-RUN docker-php-ext-install zip opcache xmlrpc soap pdo pdo_mysql calendar bcmath
-RUN pecl install memcached-3.1.3 sqlite3
+RUN docker-php-ext-install zip opcache xml soap pdo pdo_mysql calendar bcmath
+RUN pecl install memcached sqlite3
 RUN docker-php-ext-enable memcached
 
 WORKDIR /usr/src/app
