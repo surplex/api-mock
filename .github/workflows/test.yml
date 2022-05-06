@@ -23,5 +23,9 @@ jobs:
       run: composer validate
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
+    - name: prepare api tests
+      run: bin/console migrate/up --interactive 0
     - name: Run unit tests
       run: bin/codecept run unit
+    - name: Run api tests
+      run: bin/codecept run api
