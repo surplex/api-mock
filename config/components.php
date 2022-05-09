@@ -8,7 +8,7 @@ use Monolog\Logger;
 
 $psrLogger = new Logger('api-mock');
 $psrLogger->pushHandler(new StreamHandler(__DIR__ . '/../var/logs/web.log', (
-YII_ENV_DEV ? Logger::DEBUG : Logger::ERROR
+    YII_ENV_DEV ? Logger::DEBUG : Logger::ERROR
 )));
 
 $componentConfigs = yii\helpers\ArrayHelper::merge(

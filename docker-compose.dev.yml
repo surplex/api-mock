@@ -12,5 +12,7 @@ services:
       - php
   php:
     hostname: php
+    environment:
+      - YII_ENV_DEV=1
     volumes:
       - ./:/usr/src/app
