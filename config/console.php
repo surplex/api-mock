@@ -10,7 +10,7 @@ return
         'id' => Yii::getAlias('@app.type'),
         'name' => 'API MOCK Console App',
         'basePath' => dirname(__DIR__),
-        'bootstrap' => [],
+        'bootstrap' => ['log'],
         //Take care of this line. Switched controller root to common module. Before it was: app\commands
         'controllerNamespace' => 'Srplx\Mock\Command',
         'runtimePath' => dirname(__DIR__) . '/var',
