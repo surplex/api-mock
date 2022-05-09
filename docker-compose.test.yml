@@ -4,3 +4,6 @@ services:
   web:
     volumes:
       - ./docker/default.dev.conf:/etc/nginx/conf.d/default.conf
+  php:
+    environment:
+      - YII_ENV_DEV=1

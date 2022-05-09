@@ -32,6 +32,9 @@ RUN docker-php-ext-enable memcached
 
 WORKDIR /usr/src/app
 COPY . /usr/src/app
+RUN mkdir /usr/src/app/var
+RUN mkdir /usr/src/app/var/logs
+RUN chmod 777 /usr/src/app/var/logs
 VOLUME ["/usr/src/app/db"]
 RUN composer install
 
