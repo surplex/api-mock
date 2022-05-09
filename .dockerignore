@@ -1,6 +1,6 @@
 db/mock.db
 vendor/
-var/
+var/logs/web.log
 docker/*
 !docker/entrypoint.sh
 bin/*

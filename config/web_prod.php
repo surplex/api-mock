@@ -8,7 +8,8 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'dic-config',
-        'common'
+        'common',
+        'log'
     ],
     'components' =>  require_once __DIR__ . '/components.php',
     'runtimePath' => Yii::getAlias('@app.runtime.path'),
