@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "php": ">=7.2.0",
+    "php": ">=8.0.0",
     "ext-json": "*",
     "ext-pdo": "*",
     "ext-zip": "*",
@@ -36,11 +36,18 @@
     "bower-asset/inputmask": "*"
   },
   "require-dev": {
-    "codeception/codeception": "^2.4",
-    "codeception/c3": "2.*"
+    "codeception/codeception": "^4",
+    "codeception/c3": "2.*",
+    "codeception/module-asserts": "*",
+    "codeception/module-phpbrowser": "*",
+    "codeception/module-rest": "*"
   },
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "codeception/c3": true
+    }
   },
   "autoload": {
     "psr-4": {

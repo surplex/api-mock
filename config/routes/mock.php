@@ -6,21 +6,21 @@
  */
 return [
     [
-        'pattern'   => '',
+        'pattern'   => 'api-mock/create',
         'route'     => 'mock/mock/create',
         'verb'      => 'POST',
     ],
     [
-        'pattern'   => '',
+        'pattern'   => 'api-mock/count',
         'route'     => 'mock/mock/count',
         'verb'      => 'GET',
     ],
     [
-        'pattern'   => 'clear-session',
+        'pattern'   => 'api-mock/clear-session',
         'route'     => 'mock/mock/clear-session',
     ],
     [
-        'pattern'   => 'client-request',
+        'pattern'   => 'api-mock/client-request',
         'route'     => 'mock/mock/get-client-request',
         'verb'      => 'GET',
     ],

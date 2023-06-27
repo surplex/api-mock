@@ -17,7 +17,7 @@ class MockControllerCest
      */
     public function tryToSaveResponse(\ApiTester $I)
     {
-        $I->sendPOST('/', [
+        $I->sendPOST('/api-mock/create', [
             'data' => [
                 'test' => 'api'
             ],
@@ -36,8 +36,8 @@ class MockControllerCest
      */
     public function tryToReceiveCountOfNotReceivedMocksAndShouldSeeOne(\ApiTester $I)
     {
-        $I->sendGET('/?session_id=apitest');
-        $I->see(1);
+        $I->sendGET('/api-mock/count?session_id=apitest');
+        $I->see('1');
     }
 
     /**
@@ -56,8 +56,8 @@ class MockControllerCest
      */
     public function tryToReceiveCountOfNotReceivedMocksAndShouldSeeZero(\ApiTester $I)
     {
-        $I->sendGET('/?session_id=apitest');
-        $I->see(0);
+        $I->sendGET('/api-mock/count?session_id=apitest');
+        $I->see('0');
     }
 
     /**
@@ -68,7 +68,7 @@ class MockControllerCest
      */
     public function tryToStoreClientRequest(\ApiTester $I)
     {
-        $I->sendPOST('/', [
+        $I->sendPOST('/api-mock/create', [
             'session_id'  => 'apitest',
             'status_code' => HttpCode::OK,
             'headers'     => ['Content-Type' => 'application/json'],
@@ -81,7 +81,7 @@ class MockControllerCest
         $I->sendGET($testUrl);
         $I->seeResponseCodeIs(HttpCode::OK);
 
-        $I->sendGET('/client-request?session_id=apitest&request_key=api_test_request');
+        $I->sendGET('/api-mock/client-request?session_id=apitest&request_key=api_test_request');
         $I->seeResponseCodeIs(HttpCode::OK);
         $response = json_decode($I->grabResponse(), true);
         $I->assertEquals('GET', $response['method']);
@@ -95,7 +95,7 @@ class MockControllerCest
      */
     public function tryToClearSession(\ApiTester $I)
     {
-        $I->sendGET('/clear-session?session_id=apitest');
+        $I->sendGET('/api-mock/clear-session?session_id=apitest');
         $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
     }
 }

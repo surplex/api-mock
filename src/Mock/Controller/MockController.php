@@ -69,8 +69,8 @@ class MockController extends Controller
         $mock = Mock::retrieveMockBySessionId($sessionId);
         if (is_null($mock)) {
             $reservedUrlService = \Yii::createObject(ReservedUrlService::class);
-           // call_user_func($reservedUrlService->getUrls()[0]->getCallback(),\Yii::$app->getRequest(), \Yii::$app->getResponse());
-            if ($reservedUrlService->isReservedRequest(\Yii::$app->getRequest())) {
+            $reservedUrl = $reservedUrlService->getReservedRequest(\Yii::$app->getRequest());
+            if (!is_null($reservedUrl)) {
                 $reservedUrlService->handle(\Yii::$app->getRequest(), \Yii::$app->getResponse());
                 return;
             }
