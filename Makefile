@@ -13,7 +13,7 @@ dev:
 test:
 	docker-compose -p ${AM_GIT_HASH} -f docker-compose.yml -f docker-compose.test.yml up -d --build
 	sleep 10
-	docker exec -t ${AM_GIT_HASH}_php_1 //bin/bash -c 'bin/codecept run'
+	docker exec -t ${AM_GIT_HASH}-php-1 //bin/bash -c 'bin/codecept run'
 	docker-compose -p ${AM_GIT_HASH} -f docker-compose.yml -f docker-compose.test.yml down
 
 .PHONY: prod
